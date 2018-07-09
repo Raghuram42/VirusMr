@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scanner: MyString
+  detected: MyString
+  version: 1
+  result: MyString
+  scandate: 2017-05-16
+
+two:
+  scanner: MyString
+  detected: MyString
+  version: 1
+  result: MyString
+  scandate: 2017-05-16

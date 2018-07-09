@@ -1,0 +1,2 @@
+module DetectsHelper
+end

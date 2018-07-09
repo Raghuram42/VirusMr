@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>ProjectU</title>
+    <%= csrf_meta_tags %>
+ <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
+
+<body id="page-top" class="index">
+<div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">MrVirus</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                <% if user_signed_in?  %>
+                        <li class="page-scroll">
+                       <%= link_to "History",  history_index_path %>
+                    </li>
+                    <li class="page-scroll">
+                        <%= link_to "Contact Us", contact_index_path %>                  
+                    </li>
+                    <li class="page-scroll">
+                        <%= link_to "About Us", about_index_path %>
+                    </li>
+                    <li class="page-scroll">
+                       <%= link_to "LogOut",  destroy_user_session_path, :method => :delete %>
+                    </li>
+                
+                <% else %>
+
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li class="page-scroll">
+                       <%= link_to "Sign Up",  new_user_registration_path %>
+                    </li>
+                    <li class="page-scroll">
+                        <%= link_to "Login", new_user_session_path %>                  
+                    </li>
+                    <li class="page-scroll">
+                        <%= link_to "About Us", about_index_path %>
+                    </li>
+                    <li class="page-scroll">
+                         <%= link_to "Contact Us", contact_index_path %>
+                    </li>
+                <% end %>
+          </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    
+    <!-- Header -->
+    <% if !user_signed_in? %>
+    <header>
+        <div class="container" id="maincontent" tabindex="-1">
+            <div class="row">
+                <div class="col-lg-12">
+                <%= image_tag('mrvirus1.png', :class => "img-circle")  %>
+                    <div class="intro-text">
+                        <h1 class="name">MrVirus</h1>
+                        <hr class="star-light">
+                        <span class="skills">MrVirus is a free service that analyzes suspicious files and facilitates the quick detection of viruses, worms, trojans.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <% end %>
+    <!-- Portfolio Grid Section -->
+              <%= yield %>
+    
+ <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+                        <p>MrVirus Building
+                         <br>Banjara Hills,  90210</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Around the Web</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>About MrVirus</h3>
+                        <p>Give a try use our MrVirus to scan your torrents crack files any!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; MrVirus 2017 NANI!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
